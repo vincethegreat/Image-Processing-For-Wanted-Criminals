@@ -1,37 +1,19 @@
 import cv2
-<<<<<<< HEAD
-from PyQt5.QtWidgets import QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QApplication, QMessageBox 
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QImage, QPixmap, QIcon
-from PyQt5.QtCore import QUrl
-from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QHBoxLayout
-from PyQt5.QtGui import QDesktopServices
-from PyQt5.QtWidgets import QPushButton
-from PyQt5.QtWidgets import QComboBox, QTextEdit
-from PyQt5.QtWidgets import QApplication, QFileDialog, QLabel, QMainWindow
-from simple_facerec import SimpleFacerec
-from view_records_window import ViewRecordsWindow
-from database import create_database, insert_data_to_database
 import sys
 import os
 import csv
-=======
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QImage, QPixmap, QIcon
-from PyQt5.QtCore import QUrl
-from PyQt5.QtGui import QDesktopServices
-from PyQt5.QtWidgets import QPushButton
-from PyQt5.QtWidgets import QApplication, QFileDialog, QLabel, QMainWindow
+from PyQt5.QtWidgets import QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QApplication, QMessageBox, QHBoxLayout, QComboBox, QTextEdit, QMainWindow, QFileDialog
+from PyQt5.QtGui import QImage, QPixmap, QIcon, QDesktopServices
+from PyQt5.QtCore import QUrl, Qt 
 from simple_facerec import SimpleFacerec
-import sys
+from view_records_window import ViewRecordsWindow
+from database import create_database, insert_data_to_database
 
->>>>>>> 7c707ceb831042de0abd95ca77e8baa1914dcced
 # e encode ang mga nawong sa folders
 sfr = SimpleFacerec()
 sfr.load_encoding_images("images/")
 
-<<<<<<< HEAD
 class FormWindow(QWidget):
     def __init__(self):
         super().__init__()
@@ -76,14 +58,8 @@ class FormWindow(QWidget):
 
         # Confirm the data was saved
         QMessageBox.information(self, "Data Saved", "Data was saved to the database")
-=======
->>>>>>> 7c707ceb831042de0abd95ca77e8baa1914dcced
 
-class MainWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
 
-<<<<<<< HEAD
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -165,7 +141,7 @@ class MainWindow(QMainWindow):
     #Submit Images Button
     def open_folder(self):
         # Function to be called when open folder button is clicked
-        folder_path = QUrl.fromLocalFile('C:/Users/user/Desktop/face_recog/images')
+        folder_path = QUrl.fromLocalFile('C://Users//user//Desktop//face_recog//images')
         QDesktopServices.openUrl(folder_path)
 
     def update_frame(self):
@@ -174,7 +150,6 @@ class MainWindow(QMainWindow):
         icon = QIcon("icon/icon.png")  # Load the icon image
         self.setWindowIcon(icon)
 
-=======
         # Create a label to display the video feed
         self.label = QLabel(self)
         self.label.setGeometry(QtCore.QRect(10, 10, 480, 360))
@@ -198,10 +173,10 @@ class MainWindow(QMainWindow):
 
         # Make the logo label transparent
         self.logo_label.setAttribute(QtCore.Qt.WA_TranslucentBackground)
-
+    #SUBMIT IMAGES BUTTON CONNECT
     def open_folder(self):
         # Function to be called when open folder button is clicked
-        folder_path = QUrl.fromLocalFile('C:/Users/user/repos/face-recognition-for-wanted-criminals/face_recog/images')
+        folder_path = QUrl.fromLocalFile('C://Users//user//Desktop//face_recog//images')
         QDesktopServices.openUrl(folder_path)
 
     def update_frame(self):
@@ -210,7 +185,6 @@ class MainWindow(QMainWindow):
         icon = QIcon("icon/icon.png")  # Load the icon image
         self.setWindowIcon(icon)
 
->>>>>>> 7c707ceb831042de0abd95ca77e8baa1914dcced
         # Detect Faces
         face_locations, face_names = sfr.detect_known_faces(frame)
         for face_loc, name in zip(face_locations, face_names):
@@ -228,7 +202,6 @@ class MainWindow(QMainWindow):
     def closeEvent(self, event):
         self.cap.release()
 
-<<<<<<< HEAD
 class LoginWindow(QWidget):
     def __init__(self):
         super().__init__()
@@ -279,9 +252,7 @@ if __name__ == '__main__':
     login_window = LoginWindow()
     login_window.show()
     sys.exit(app.exec_())
-=======
 app = QApplication(sys.argv)
 window = MainWindow()
 window.show()
 sys.exit(app.exec_())
->>>>>>> 7c707ceb831042de0abd95ca77e8baa1914dcced
